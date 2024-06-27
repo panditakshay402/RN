@@ -1,34 +1,47 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, SafeAreaView, TextInput } from 'react-native';
 
-const App = () => {
+const TextInputComponent = () => {
+  // const [text, setText] = useState('');
+
   return (
-    <View style={styles.container}>
-      <Text>Image 1</Text>
-      <Image
-        style={styles.image}
-        source={{ uri: 'https://reactnative.dev/img/header_logo.svg' }}
-      />
-      <Text>Image 2</Text>
-      <Image
-        style={styles.image}
-        source={require('./assets/img/logo1.png') }
-      />
-     
-    </View>
+    // <SafeAreaView style={styles.safeArea}>
+      <View style={styles.container}>
+        <Text style={styles.label}>Enter Here</Text>
+        <TextInput
+          style={styles.inputText}
+          // placeholder='Enter here'
+          // value={text}
+          // onChangeText={setText}
+        />
+      </View>
+    // </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    padding: 16,
   },
-  image: {
-    width: 100,
-    height: 90,
+  label: {
+    marginBottom: 8,
+    fontSize: 18,
+    color: '#333',
+  },
+  inputText: {
+    width: 200,
+    height: 40,
+    // borderColor: '#ccc',
+    borderWidth: 1,
+    // paddingHorizontal: 8,
+    // borderRadius: 4,
   },
 });
 
-export default App;
+export default TextInputComponent;
