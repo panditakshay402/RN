@@ -1,21 +1,33 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import DetailScreen from './DetailScreen';
+
+const Stack = createStackNavigator();
+
+const HomeScreen = ({ navigation }) => {
+  return (
+    <View style={styles.container}>
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('Details')}
+      />
+    </View>
+  );
+};
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Image 1</Text>
-      <Image
-        style={styles.image}
-        source={{ uri: 'https://reactnative.dev/img/header_logo.svg' }}
-      />
-      <Text>Image 2</Text>
-      <Image
-        style={styles.image}
-        source={require('./assets/img/logo1.png') }
-      />
-     
-    </View>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Details" component={DetailScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </GestureHandlerRootView>
   );
 };
 
