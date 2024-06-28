@@ -1,20 +1,19 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import React ,{useState} from 'react';
+import { StyleSheet, Text, View, Image, Button } from 'react-native';
 
 const App = () => {
+
+  const [name, setName]= useState ('Akshay');
+  const clickHandler =()=>{
+    setName('Pandit');
+  }
+
   return (
     <View style={styles.container}>
-      <Text>Image 1</Text>
-      <Image
-        style={styles.image}
-        source={{ uri: 'https://reactnative.dev/img/header_logo.svg' }}
-      />
-      <Text>Image 2</Text>
-      <Image
-        style={styles.image}
-        source={require('./assets/img/logo1.png') }
-      />
-     
+     <Text>This is {name}</Text>
+     <View>
+     <Button title='click here' onPress={clickHandler}/>
+     </View>
     </View>
   );
 };
