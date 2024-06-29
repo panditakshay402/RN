@@ -1,34 +1,34 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native'
+import React from 'react'
 
 const App = () => {
   return (
     <View style={styles.container}>
-      <Text>Image 1</Text>
-      <Image
-        style={styles.image}
-        source={{ uri: 'https://reactnative.dev/img/header_logo.svg' }}
-      />
-      <Text>Image 2</Text>
-      <Image
-        style={styles.image}
-        source={require('./assets/img/logo1.png') }
-      />
-     
+      <Text>Enter email/Phone No</Text>
+      <TextInput style={styles.inputText}/>
+      <Text>Enter Password</Text>
+      <TextInput style={styles.inputText}/>
+      <Button title='Login'/>
     </View>
-  );
-};
+  )
+}
+
+export default App
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+  container:{
+    flex:1,
+    alignItems:'center',
+    justifyContent:'center',
+    // backgroundColor:'red',
+  }
+  ,
+  inputText:{
+    width:300,
+    height:40,
+    borderColor:'black',
+    borderWidth:2,
+    borderRadius:5,
   },
-  image: {
-    width: 100,
-    height: 90,
-  },
-});
 
-export default App;
+})
